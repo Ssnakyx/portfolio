@@ -1,0 +1,55 @@
+.sticky-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  padding: 1.25rem 0;
+  transition: background var(--duration) var(--ease), backdrop-filter var(--duration) var(--ease);
+}
+.sticky-header.scrolled {
+  background: rgba(10,10,10,.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.sticky-header .container { display: flex; align-items: center; justify-content: space-between; }
+
+.logo {
+  font-family: "Syne", sans-serif;
+  font-size: 1.125rem; font-weight: 700;
+  color: var(--text); letter-spacing: -.02em;
+}
+
+nav { display: flex; align-items: center; gap: 2rem; }
+
+.nav-links { list-style: none; display: flex; align-items: center; gap: .25rem; }
+
+.nav-link {
+  background: none; border: none;
+  color: var(--text-secondary);
+  font-family: "Inter", sans-serif; font-size: .875rem; font-weight: 400;
+  padding: .5rem 1rem; cursor: pointer;
+  border-radius: var(--radius-full);
+  transition: color var(--duration) var(--ease), background var(--duration) var(--ease);
+}
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,.05); }
+
+.header-actions { display: flex; align-items: center; gap: .75rem; }
+.status-badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .375rem .875rem;
+  border: 1px solid var(--border); border-radius: var(--radius-full);
+  font-size: .7rem; color: var(--text-secondary); letter-spacing: .05em;
+}
+.status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+.mobile-menu-toggle { display: none; background: transparent; border: none; cursor: pointer; padding: .5rem; }
+.menu-bar {
+  display: block; width: 20px; height: 2px; margin: 4px 0;
+  background: var(--text); border-radius: 2px;
+  transition: transform var(--duration) var(--ease), opacity var(--duration) var(--ease);
+}
+.menu-open .menu-bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-open .menu-bar:nth-child(2) { opacity: 0; }
+.menu-open .menu-bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
